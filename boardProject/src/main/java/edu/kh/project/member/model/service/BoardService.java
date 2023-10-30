@@ -1,0 +1,33 @@
+package edu.kh.project.member.model.service;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
+import edu.kh.project.board.model.dto.Board;
+
+public interface BoardService {
+
+	List<Map<String, Object>> selectBoardTypeList();
+
+	Map<String, Object> selectBoardList(int boardCode, int cp);
+
+	Board selectBoard(Map<String, Object> map);
+
+	
+
+	/** 좋아요 체크
+	 * @param map
+	 * @return
+	 */
+	int boardLikeCheck(Map<String, Object> map);
+
+	int updateReadCount(int boardNo);
+
+	int like(Map<String, Integer> paramMap) ;
+
+	Map<String, Object> selectBoardList(Map<String, Object> paramMap, int cp);
+
+	List<String> selectImageList();
+
+}

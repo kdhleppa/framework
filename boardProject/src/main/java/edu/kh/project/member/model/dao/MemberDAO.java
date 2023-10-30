@@ -34,5 +34,20 @@ public class MemberDAO {
 		
 		return sqlSession.selectOne("memberMapper.login", inputMember);
 	}
+
+
+
+	/** 회원가입 DAO
+	 * @param inputMember
+	 * @return 회원 가입 성공시 리절트값 전달
+	 */
+	public int signUp(Member inputMember) {
+				
+		return sqlSession.insert("memberMapper.signUp", inputMember); 
+	}
+
+
+
+	
 	
 }

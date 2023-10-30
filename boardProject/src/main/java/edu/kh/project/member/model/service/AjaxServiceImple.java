@@ -31,6 +31,7 @@ public class AjaxServiceImple implements AjaxService{
 		return dao.checkEmail(email);
 	}
 	
+	@Override
 	public int checkNickname(String nickname) {
 		return dao.checkNickname(nickname);
 	}

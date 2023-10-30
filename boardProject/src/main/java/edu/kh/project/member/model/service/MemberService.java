@@ -1,5 +1,7 @@
 package edu.kh.project.member.model.service;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import edu.kh.project.member.model.dto.Member;
 
 //Service Interface 사용 이유
@@ -21,5 +23,18 @@ public interface MemberService {
 	 * @return email, pw가 일치하는 회원정보 또는 null
 	 */
 	Member login(Member inputMember);
+	
+	
+	/** 회원가입 서비스
+	 * @param inputMember
+	 * @return 성공 결과값 result
+	 */
+	int signUp(Member inputMember);
+
+
+	
+
+	
+	
 	
 }
