@@ -1,5 +1,8 @@
 package edu.kh.project.member.model.service;
 
+import org.slf4j.ILoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -12,6 +15,10 @@ import edu.kh.project.member.model.dto.Member;
 @Service // 비즈니스 로직(데이터 가공, DAO 호출, 트렌젝션 제어)처리하는 클래스 명사
 // + Bean 으로 등록하는 어노테이션
 public class MemberServiceImpl implements MemberService {
+	
+	//org.slf4j.Logger : 로그를 작성할 수 있는 객체
+	//org.slf4j.LoggerFactory 
+	private Logger logger = LoggerFactory.getLogger(MemberServiceImpl.class);
 	// @Autowired : 작성된 필드의
 	// Bean 으로 등록된 객체 중 타입에 일치하는 Bean을
 	// 해당 필드에 자동 주입(Injection) 하는 어노테이션.
@@ -26,13 +33,13 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Override
 	public Member login(Member inputMember) {
-		/*
-		System.out.println("암호화 확인1: " + bcrypt.encode(inputMember.getMemberPw()));
-		System.out.println("암호화 확인2: " + bcrypt.encode(inputMember.getMemberPw()));
-		System.out.println("암호화 확인3: " + bcrypt.encode(inputMember.getMemberPw()));
-		System.out.println("암호화 확인4: " + bcrypt.encode(inputMember.getMemberPw()));
-		*/
+	
+		// 로그 출력
+		logger.info("MemberServiceImpl.login() 실행");
+		logger.debug("memberEmail : " + inputMember.getMemberEmail());
 		
+		logger.warn("이건 경고 용도");
+		logger.error("이건 오류 발생 시");
 		
 		// dao 메서드 호출
 		Member loginMember = dao.login(inputMember);
